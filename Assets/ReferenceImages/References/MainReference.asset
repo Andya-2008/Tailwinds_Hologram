@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: MainReference
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5322604180591381032
+  m_GuidHigh: 5112358029934639242
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5419294766016370146
+      m_GuidHigh: 3357749354893591964
+    m_SerializedTextureGuid:
+      m_GuidLow: 14102155717799263505
+      m_GuidHigh: 16973583038129281242
+    m_Size: {x: 0.4, y: 0.5554522}
+    m_SpecifySize: 1
+    m_Name: InspirationPoster
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5115434055083849481
+      m_GuidHigh: 2820462375043431102
+    m_SerializedTextureGuid:
+      m_GuidLow: 15029844944147573979
+      m_GuidHigh: 12274016139055118682
+    m_Size: {x: 0.4, y: 0.21394186}
+    m_SpecifySize: 1
+    m_Name: OGStaff
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5454933700949174014
+      m_GuidHigh: 15362731959991170472
+    m_SerializedTextureGuid:
+      m_GuidLow: 6553924638274172903
+      m_GuidHigh: 15951134958756569929
+    m_Size: {x: 0.4, y: 0.5330254}
+    m_SpecifySize: 1
+    m_Name: OneWay
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4907154386821747468
+      m_GuidHigh: 13301343545184822172
+    m_SerializedTextureGuid:
+      m_GuidLow: 7283576033631576487
+      m_GuidHigh: 12455224404593809498
+    m_Size: {x: 0.4, y: 0.53139746}
+    m_SpecifySize: 1
+    m_Name: Mural
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4663963900876597983
+      m_GuidHigh: 17200516360296474275
+    m_SerializedTextureGuid:
+      m_GuidLow: 893078116141888121
+      m_GuidHigh: 6293460634560271256
+    m_Size: {x: 0.4, y: 0.54155844}
+    m_SpecifySize: 1
+    m_Name: PurpleGuy
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4864659674751220000
+      m_GuidHigh: 18210996039444848004
+    m_SerializedTextureGuid:
+      m_GuidLow: 5680300654765525099
+      m_GuidHigh: 15147736535517340379
+    m_Size: {x: 0.3, y: 0.2336}
+    m_SpecifySize: 1
+    m_Name: CareerCenter
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5025495825117829787
+      m_GuidHigh: 13400855775142605493
+    m_SerializedTextureGuid:
+      m_GuidLow: 12070848160294924500
+      m_GuidHigh: 13239038555668213659
+    m_Size: {x: 0.3, y: 0.48936173}
+    m_SpecifySize: 1
+    m_Name: Garbo
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5609748956472723454
+      m_GuidHigh: 9215886574663762316
+    m_SerializedTextureGuid:
+      m_GuidLow: 5076706598420371617
+      m_GuidHigh: 9866897157169957592
+    m_Size: {x: 0.4, y: 0.47828418}
+    m_SpecifySize: 1
+    m_Name: PorterDraw
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5698841139545071201
+      m_GuidHigh: 4127115257529734052
+    m_SerializedTextureGuid:
+      m_GuidLow: 4495830769164601118
+      m_GuidHigh: 3760411566459550552
+    m_Size: {x: 0.4, y: 0.113347024}
+    m_SpecifySize: 1
+    m_Name: Kitchenette
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5596883787963211346
+      m_GuidHigh: 8358793677307047325
+    m_SerializedTextureGuid:
+      m_GuidLow: 8332822716463076050
+      m_GuidHigh: 10389880992979173963
+    m_Size: {x: 0.4, y: 0.3061144}
+    m_SpecifySize: 1
+    m_Name: CampaignPoster
+    m_Texture: {fileID: 0}
