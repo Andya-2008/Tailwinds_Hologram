@@ -133,8 +133,11 @@ GameObject:
   - component: {fileID: 618406242}
   - component: {fileID: 618406241}
   - component: {fileID: 618406246}
+  - component: {fileID: 618406248}
+  - component: {fileID: 618406247}
+  - component: {fileID: 618406249}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: InstObj
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,6 +263,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   glitchChance: 0.1
+--- !u!95 &618406247
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618406240}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!320 &618406248
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618406240}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 96d482e5a147f6e42ad8af3e60a9205b, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 5653141069703787846, guid: 96d482e5a147f6e42ad8af3e60a9205b, type: 2}
+    value: {fileID: 618406247}
+  m_ExposedReferences:
+    m_References: []
+--- !u!114 &618406249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618406240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fc43f394647754f8b41e0cb6eec28b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  spin: 1
+  inAnimation: 0
+  spinSpeed: 50
+  liftSpeed: 0.001
 --- !u!1 &845599761
 GameObject:
   m_ObjectHideFlags: 0

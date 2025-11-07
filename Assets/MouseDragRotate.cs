@@ -15,6 +15,7 @@ public class MouseDragRotate : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            GetComponent<SpinningAnimation>().spin = false;
             dragging = true;
             rotationVelocity = 0f;
             lastMousePosition = Input.mousePosition;
@@ -22,6 +23,7 @@ public class MouseDragRotate : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            GetComponent<SpinningAnimation>().spin = true;
             dragging = false;
         }
 
