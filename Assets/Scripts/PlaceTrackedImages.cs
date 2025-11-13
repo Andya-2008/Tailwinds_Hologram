@@ -17,14 +17,7 @@ public class PlaceTrackedImages : MonoBehaviour
     // Reference to AR tracked image manager component private ARTrackedImageManager _trackedImagesManager;
     // List of prefabs to instantiate
     public GameObject[] ArPrefabs;
-    public GameObject[] Prizes;
-    // Keep dictionary array of created prefabs
     private readonly Dictionary<string, GameObject> _instantiatedPrefabs = new Dictionary<string, GameObject>();
-    public bool objOn;
-    public Canvas TappedCanvas; 
-    [SerializeField] Canvas ObjCanvas;
-    public GameObject TapImage;
-    [SerializeField] GameObject TutorialText;
     /*
     private void Start()
     {
@@ -50,120 +43,47 @@ public class PlaceTrackedImages : MonoBehaviour
     }
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
     {
-
-        if (objOn)
+        //GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().TextDebug.text = eventArgs.added.Count.ToString() + ":" + eventArgs.updated.Count.ToString() + ":" + eventArgs.removed.Count.ToString();
+        foreach (var trackedImage in eventArgs.added)
         {
-            //GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().TextDebug.text = eventArgs.added.Count.ToString() + ":" + eventArgs.updated.Count.ToString() + ":" + eventArgs.removed.Count.ToString();
-            foreach (var trackedImage in eventArgs.added)
-            {
-                var imageName = trackedImage.referenceImage.name;
+            var imageName = trackedImage.referenceImage.name;
 
-                if (imageName.Contains("OneWay") && !_instantiatedPrefabs.ContainsKey(imageName))
+            foreach (var curPrefab in ArPrefabs)
+            {
+                //TextDebug.text += "curprefab:" + curPrefab.name;
+
+
+                if (string.Compare(curPrefab.name, imageName, StringComparison.OrdinalIgnoreCase) == 0 && !_instantiatedPrefabs.ContainsKey(imageName))
                 {
-                    if (!GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().prize)
-                    {
-                        TappedCanvas.enabled = true;
-                        ObjCanvas.enabled = false;
-                        TapImage.SetActive(true);
-                        TutorialText.SetActive(false);
-                    }
-                    else
-                    {
-                        GameObject.Find("EndManager").GetComponent<EndManager>().EndGameInitate();
-                        TutorialText.SetActive(false);
-                    }
-                    var newPrefab = Instantiate(Prizes[PlayerPrefs.GetInt("Prize",0)], trackedImage.transform);
-                    GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().foundObject = true;
+                    var newPrefab = Instantiate(curPrefab, trackedImage.transform);
                     _instantiatedPrefabs[imageName] = newPrefab;
                 }
-                else
-                {
-                    foreach (var curPrefab in ArPrefabs)
-                    {
-                        //TextDebug.text += "curprefab:" + curPrefab.name;
-
-
-                        if (string.Compare(curPrefab.name, imageName, StringComparison.OrdinalIgnoreCase) == 0 && !_instantiatedPrefabs.ContainsKey(imageName))
-                        {
-                            if (!GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().prize)
-                            {
-                                TappedCanvas.enabled = true;
-                                ObjCanvas.enabled = false;
-                                TapImage.SetActive(true);
-                                TutorialText.SetActive(false);
-                            }
-                            else
-                            {
-                                GameObject.Find("EndManager").GetComponent<EndManager>().EndGameInitate();
-                                TutorialText.SetActive(false);
-                            }
-                            var newPrefab = Instantiate(curPrefab, trackedImage.transform);
-                            GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().foundObject = true;
-                            _instantiatedPrefabs[imageName] = newPrefab;
-                        }
-                    }
-                }
             }
-
-            foreach (var trackedImage in eventArgs.updated)
-            {
-                var imageName = trackedImage.referenceImage.name;
-                if (imageName.Contains("OneWay") && !_instantiatedPrefabs.ContainsKey(imageName))
-                {
-                    if (!GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().prize)
-                    {
-                        TappedCanvas.enabled = true;
-                        ObjCanvas.enabled = false;
-                        TapImage.SetActive(true);
-                        TutorialText.SetActive(false);
-                    }
-                    else
-                    {
-                        GameObject.Find("EndManager").GetComponent<EndManager>().EndGameInitate();
-                        TutorialText.SetActive(false);
-                    }
-                    var newPrefab = Instantiate(Prizes[PlayerPrefs.GetInt("Prize", 0)], trackedImage.transform);
-                    GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().foundObject = true;
-                    _instantiatedPrefabs[imageName] = newPrefab;
-                }
-                else
-                {
-                    foreach (var curPrefab in ArPrefabs)
-                    {
-                        if (string.Compare(curPrefab.name, imageName, StringComparison.OrdinalIgnoreCase) == 0 && !_instantiatedPrefabs.ContainsKey(imageName))
-                        {
-                            if (!GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().prize)
-                            {
-                                TappedCanvas.enabled = true;
-                                ObjCanvas.enabled = false;
-                                TapImage.SetActive(true);
-                                TutorialText.SetActive(false);
-                            }
-                            else
-                            {
-                                GameObject.Find("EndManager").GetComponent<EndManager>().EndGameInitate();
-                                TutorialText.SetActive(false);
-                            }
-                            var newPrefab = Instantiate(curPrefab, trackedImage.transform);
-                            GameObject.Find("ObjectiveManager").GetComponent<ObjectiveManager>().foundObject = true;
-                            _instantiatedPrefabs[imageName] = newPrefab;
-
-                        }
-                    }
-                }
-            }
-
-            foreach (var trackedImage in eventArgs.removed)
-            {
-                _instantiatedPrefabs[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
-            }
-
-            foreach (var trackedImage in eventArgs.removed)
-            {
-                Destroy(_instantiatedPrefabs[trackedImage.referenceImage.name]);
-                _instantiatedPrefabs.Remove(trackedImage.referenceImage.name);
-            }
-
         }
+
+        foreach (var trackedImage in eventArgs.updated)
+        {
+            var imageName = trackedImage.referenceImage.name;
+            foreach (var curPrefab in ArPrefabs)
+            {
+                if (string.Compare(curPrefab.name, imageName, StringComparison.OrdinalIgnoreCase) == 0 && !_instantiatedPrefabs.ContainsKey(imageName))
+                {
+                    var newPrefab = Instantiate(curPrefab, trackedImage.transform);
+                    _instantiatedPrefabs[imageName] = newPrefab;
+                }
+            }
+        }
+
+        foreach (var trackedImage in eventArgs.removed)
+        {
+            _instantiatedPrefabs[trackedImage.referenceImage.name].SetActive(trackedImage.trackingState == TrackingState.Tracking);
+        }
+
+        foreach (var trackedImage in eventArgs.removed)
+        {
+            Destroy(_instantiatedPrefabs[trackedImage.referenceImage.name]);
+            _instantiatedPrefabs.Remove(trackedImage.referenceImage.name);
+        }
+
     }
 }

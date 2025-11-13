@@ -10,7 +10,11 @@ public class MouseDragRotate : MonoBehaviour
     private Vector3 lastMousePosition;
     private float rotationVelocity;       // Only one float for Y-axis rotation
     private bool dragging = false;
-
+    private SliderUI sliderUI;
+    private void Start()
+    {
+        sliderUI = GameObject.Find("DragSlider").GetComponent<SliderUI>();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -29,6 +33,7 @@ public class MouseDragRotate : MonoBehaviour
 
         if (dragging)
         {
+            sliderUI.timeSinceDisappeared = Time.time;
             // Horizontal mouse movement controls rotation around Y
             Vector3 delta = Input.mousePosition - lastMousePosition;
             rotationVelocity = -delta.x * rotationSpeed; // Flip sign for natural feel

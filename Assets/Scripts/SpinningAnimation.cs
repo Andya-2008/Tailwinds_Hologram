@@ -6,6 +6,7 @@ public class SpinningAnimation : MonoBehaviour
     public bool inAnimation;
     [SerializeField] float spinSpeed;
     [SerializeField] float liftSpeed;
+    [SerializeField] Transform scalar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,7 +18,7 @@ public class SpinningAnimation : MonoBehaviour
     {
         if(inAnimation)
         {
-            transform.Translate(0, liftSpeed * Time.deltaTime * 100, 0);
+            transform.Translate(0, liftSpeed * Time.deltaTime * 100 * scalar.localScale.x, 0);
         }
         if (spin)
         {
